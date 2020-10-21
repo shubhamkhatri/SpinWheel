@@ -5,7 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#FFF176">
+    android:background="#3e0815">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/coin"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/ans_text"/>
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="2dp"
+        android:background="#ffece1"
+        android:layout_below="@id/ans_text"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginRight="5dp"/>
 
     <ImageView
         android:id="@+id/idicator"
@@ -25,11 +43,33 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/idicator"/>
 
+    <ImageView
+        android:id="@+id/gift_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gift"
+        android:padding="5dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/ans_text"
+        android:layout_toRightOf="@id/spin_wheel_image"/>
+
+    <ImageView
+        android:id="@+id/bonus_image"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:src="@drawable/bonus"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/ans_text"
+        android:layout_toLeftOf="@id/spin_wheel_image"/>
+
     <EditText
         android:id="@+id/edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter Number"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
         android:inputType="number"
         android:layout_below="@id/spin_wheel_image"
         android:layout_centerHorizontal="true"
@@ -40,7 +80,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Spin"
-        android:textColor="@android:color/white"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:textColor="@android:color/black"
         android:background="@drawable/roundedbutton"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
@@ -51,11 +93,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:text="0"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/spin_button"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginRight="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
 
 
 

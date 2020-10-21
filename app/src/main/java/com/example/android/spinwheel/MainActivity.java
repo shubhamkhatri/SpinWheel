@@ -15,17 +15,30 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView wheel;
+    private ImageView wheel, gift, bonus;
     private EditText value;
     private Button spin;
     private TextView ans;
     private String txt;
+    private int z = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setDefault();
+        gift.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Gift", Toast.LENGTH_SHORT).show();
+            }
+        });
+        bonus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Bonus", Toast.LENGTH_SHORT).show();
+            }
+        });
         spin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,10 +47,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Enter a Number", Toast.LENGTH_SHORT).show();
                 else {
                     int rr = Integer.parseInt(txt);
-                    if(rr>=0&&rr<=9){
+                    if (rr >= 0 && rr <= 9) {
                         spinWheel(rr);
-                    }
-                    else
+                    } else
                         Toast.makeText(MainActivity.this, "Enter Number only Between 0-9", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -49,18 +61,18 @@ public class MainActivity extends AppCompatActivity {
         value = (EditText) findViewById(R.id.edit_text);
         spin = (Button) findViewById(R.id.spin_button);
         ans = (TextView) findViewById(R.id.ans_text);
+        gift = (ImageView) findViewById(R.id.gift_image);
+        bonus = (ImageView) findViewById(R.id.bonus_image);
     }
 
-    public void spinWheel(int rr){
-        final String result=String.valueOf(rr);
-        RotateAnimation rotateAnimation=new RotateAnimation(0,(360-(rr*36))+720,
-                RotateAnimation.RELATIVE_TO_SELF,0.5f,
-                RotateAnimation.RELATIVE_TO_SELF,0.5f);
+    public void spinWheel(final int rr) {
+        RotateAnimation rotateAnimation = new RotateAnimation(0, (360 - (rr * 36)) + 720,
+                RotateAnimation.RELATIVE_TO_SELF, 0.5f,
+                RotateAnimation.RELATIVE_TO_SELF, 0.5f);
 
         rotateAnimation.setDuration(3000);
         rotateAnimation.setFillAfter(true);
         rotateAnimation.setInterpolator(new DecelerateInterpolator());
-
 
 
         rotateAnimation.setAnimationListener(new Animation.AnimationListener() {
@@ -71,7 +83,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-            ans.setText(result);
+                z = z + rr;
+                final String result = String.valueOf(z);
+                ans.setText(result);
             }
 
             @Override
