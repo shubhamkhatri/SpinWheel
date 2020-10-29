@@ -21,7 +21,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.provider.OpenableColumns;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -53,6 +52,23 @@ public class profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         setDefault();
         storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+        if (!checkStoragePermission()) {
+
+            requestStoragePermission();
+        } else {
+            File folder = Environment.getExternalStoragePublicDirectory("/spinwheel/");
+            if (folder.exists()) {
+                Uri file = Uri.fromFile(new File(folder, "profile_pic.jpg"));
+                if (file != null) {
+                    Picasso
+                            .get()
+                            .load(file)
+                            .into(dp);
+
+                }
+            }
+        }
 
         dp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,13 +138,10 @@ public class profile extends AppCompatActivity {
                 Uri resultUri = result.getUri();
                 dp.setImageURI(resultUri);
 
-                String path = getRealPathFromURI(this,resultUri);
+                BitmapDrawable bitmapDrawable = (BitmapDrawable) dp.getDrawable();
+                Bitmap bitmap = bitmapDrawable.getBitmap();
 
-                try {
-                    saveImage(path);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                saveImage(bitmap);
 
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
@@ -137,61 +150,23 @@ public class profile extends AppCompatActivity {
         }
     }
 
-    public void saveImage(String path) throws IOException {
+    public void saveImage(Bitmap path) {
 
-        FileOutputStream fos  = openFileOutput("profile_pic",MODE_APPEND);
-
-        File file = new File(path);
-
-        byte[] bytes = getBytesFromFile(file);
-
-        fos.write(bytes);
-        fos.close();
-
-        Toast.makeText(getApplicationContext(),"File saved in :"+ getFilesDir() + "/profile_pic",Toast.LENGTH_SHORT).show();
-
-    }
-
-    private byte[] getBytesFromFile(File file) throws IOException {
-        byte[] data = FileUtils.readFileToByteArray(file);
-        return data;
-
-    }
-
-    private String getFileName(Uri uri)
-    {
-        String result = null;
-        if (uri.getScheme().equals("content")) {
-            Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-            try {
-                if (cursor != null && cursor.moveToFirst()) {
-                    result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-                }
-            } finally {
-                cursor.close();
-            }
+        String p = Environment.getExternalStorageDirectory() + "/" + "SpinWheel" + "/";
+        File dir = new File(p);
+        dir.mkdir();
+        File file = new File(dir, "profile_pic" + ".jpg");
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(file);
+            path.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            Toast.makeText(getApplicationContext(), "File saved ", Toast.LENGTH_SHORT).show();
+            fos.flush();
+            fos.close();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
         }
-        if (result == null) {
-            result = uri.getPath();
-            int cut = result.lastIndexOf('/');
-            if (cut != -1) {
-                result = result.substring(cut + 1);
-            }
-        }
-        return result;
-    }
-
-    private String getRealPathFromURI(Context context, Uri uri)
-    {
-        String[] proj = {MediaStore.Images.Media.DATA};
-        Cursor cursor = context.getContentResolver().query(uri, proj, null, null,
-                null);
-        if (cursor != null) {
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
-        }
-        return null;
     }
 
 }
+
