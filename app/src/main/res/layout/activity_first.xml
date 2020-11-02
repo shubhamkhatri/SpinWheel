@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstActivity">
+
+    <Button
+        android:id="@+id/fst_login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Login"
+        android:textColor="@android:color/white"
+        android:background="@drawable/first_screen_yellow"/>
+
+    <Button
+        android:id="@+id/fst_signUp_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_above="@id/fst_login_button"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Sign Up"
+        android:textColor="@android:color/white"
+        android:background="@drawable/first_screen_blue"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/wheel2" />
+
+
+</RelativeLayout>

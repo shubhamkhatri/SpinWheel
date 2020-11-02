@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "63806559810",
+    "firebase_url": "https://spin-wheel-4cb0d.firebaseio.com",
+    "project_id": "spin-wheel-4cb0d",
+    "storage_bucket": "spin-wheel-4cb0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63806559810:android:65d642f08466dcd6a4ffdb",
+        "android_client_info": {
+          "package_name": "com.example.android.spinwheel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "63806559810-67q2a20c2ffs7noj3iqblf3fl1d6posv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGMUfof1unSK3Mtv0MHIw_ZSlVzKtQFmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "63806559810-67q2a20c2ffs7noj3iqblf3fl1d6posv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

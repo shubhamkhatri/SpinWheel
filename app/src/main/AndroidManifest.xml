@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.spinwheel"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.android.spinwheel">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -13,26 +14,52 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".profile"
+        <activity android:name=".sample3"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".buyTicket"
+        <activity
+            android:name=".BankConfirmation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BankDetails"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
-        <activity android:name=".sample2"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".sample1"
+        <activity
+            android:name=".OtpActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+        <activity
+            android:name=".ForgetPass"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FirstActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".profile"
+            android:theme="@style/AppTheme.NoActionBar" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".buyTicket"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".sample2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".sample1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:screenOrientation="portrait"

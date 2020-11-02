@@ -4,56 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profile"
+    android:background="#3e0815"
     android:padding="10dp"
-    android:background="#3e0815">
+    tools:context=".profile">
 
 
-        <LinearLayout
-            android:id="@+id/linear_profile"
-            android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linear_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/time_background_profile"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="30dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dp"
-            android:background="@drawable/time_background_profile">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="NEXT GAME"
-                android:textColor="@android:color/black"/>
+            android:text="NEXT GAME"
+            android:textColor="@android:color/black" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2:00 PM"
-                android:textAlignment="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2:00 PM"
+            android:textAlignment="center" />
 
-        </LinearLayout>
-
+    </LinearLayout>
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="01:45:00"
         android:layout_below="@id/linear_profile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:textColor="@android:color/white"/>
+        android:text="01:45:00"
+        android:textColor="@android:color/white" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/hm_profilePic"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:layout_gravity="center"
-    android:layout_above="@id/profile_cardview"
+        android:layout_above="@id/profile_cardview"
         android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
         android:layout_marginBottom="-60dp"
-        android:src="@drawable/dp"
         android:elevation="10dp"
+        android:src="@drawable/dp"
         app:civ_border_color="@android:color/white"
         app:civ_border_width="3dp" />
 
@@ -61,41 +61,41 @@
         android:id="@+id/profile_cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/claim_button"
+        android:layout_above="@id/linear_button"
         android:layout_marginBottom="30dp"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="30dp">
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="10dp"
                 android:text="Bhavansh"
                 android:textAlignment="center"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="60dp"/>
+                android:textSize="18sp" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Buy Ticket"
-                android:background="@drawable/samplebutton"
-                android:textColor="@android:color/white"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"/>
+                android:background="@drawable/samplebutton"
+                android:text="Buy Ticket"
+                android:textColor="@android:color/white" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:background="#FFAC7C"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:background="#FFAC7C" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -112,15 +112,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Rewards"
-                        android:textSize="18sp"
+                        android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textAlignment="center"/>
+                        android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="0.0"
-                        android:textAlignment="center"/>
+                        android:textAlignment="center" />
 
                 </LinearLayout>
 
@@ -134,15 +134,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Balance"
-                        android:textSize="18sp"
+                        android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textAlignment="center"/>
+                        android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="0.0"
-                        android:textAlignment="center"/>
+                        android:textAlignment="center" />
 
                 </LinearLayout>
 
@@ -151,19 +151,38 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-
-    <Button
-        android:id="@+id/claim_button"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linear_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Claim"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
 
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:background="@drawable/roundedbutton"/>
+        <Button
+            android:id="@+id/leaderboard_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/roundedbutton"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Leaderboard" />
 
+        <Button
+            android:id="@+id/claim_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/roundedbutton"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="Claim" />
+    </LinearLayout>
 
 </RelativeLayout>
