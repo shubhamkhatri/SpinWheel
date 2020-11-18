@@ -24,24 +24,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="NEXT GAME"
-            android:textColor="@android:color/black" />
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"/>
 
         <TextView
+            android:id="@+id/p_next_game"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2:00 PM"
+            android:text="00:00:00"
             android:textAlignment="center" />
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/p_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/roundedbutton"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="play"
+        android:clickable="false"
+        android:visibility="gone"       />
 
     <TextView
+        android:id="@+id/p_time_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/linear_profile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="01:45:00"
+        android:text="00:00:00"
         android:textColor="@android:color/white" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -164,24 +181,24 @@
             android:id="@+id/leaderboard_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/roundedbutton"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="20dp"
             android:text="Leaderboard" />
 
         <Button
             android:id="@+id/claim_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="@drawable/roundedbutton"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="10dp"
             android:text="Claim" />
     </LinearLayout>
 
